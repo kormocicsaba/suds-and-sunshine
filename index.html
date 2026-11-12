@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Suds & Sunshine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="app"></div>
+<div class="vignette"></div>
+
+<div id="hud">
+  <div class="topleft">
+    <div class="pill coins" id="coinPill"><div class="coin"></div><span id="coinCount">0</span></div>
+    <div class="pill basket"><span id="basketLabel">Basket 1</span><div class="dots" id="basketDots"></div></div>
+  </div>
+  <div class="topright">
+    <button class="pill btn" id="btnShop"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z" fill="#ff8a65"/><path d="M9 9V7a3 3 0 0 1 6 0v2" stroke="#7a4a30" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span>Shop</span><i class="badge" id="shopBadge"></i></button>
+    <button class="pill iconbtn" id="btnMusic" title="Music"><svg viewBox="0 0 24 24"><path d="M9 17V6l10-2v11" stroke="#7a4a30" stroke-width="2.2" fill="none" stroke-linejoin="round"/><circle cx="7" cy="17" r="2.6" fill="#ff8a65"/><circle cx="17" cy="15" r="2.6" fill="#ff8a65"/></svg></button>
+    <button class="pill iconbtn" id="btnSound" title="Sound"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#ff8a65"/><path class="wave" d="M16 8c1.5 1.2 1.5 6.8 0 8M18.5 5.5c3 2.5 3 10.5 0 13" stroke="#7a4a30" stroke-width="2" fill="none" stroke-linecap="round"/></svg></button>
+  </div>
+
+  <div id="task" class="task hidden">
+    <div class="task-title" id="taskTitle"></div>
+    <div class="task-sub" id="taskSub"></div>
+    <div class="bar"><div class="fill" id="taskFill"></div></div>
+  </div>
+
+  <div id="hint" class="hint hidden"></div>
+  <div id="world"></div>
+  <div id="wringGuide" class="wring-guide hidden"><svg viewBox="0 0 200 200"><defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#fff"/></marker></defs><path d="M100 20 A80 80 0 1 1 30 60" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="2 16" marker-end="url(#ah)"/></svg></div>
+
+  <aside id="shop" class="drawer">
+    <div class="drawer-head"><h2>Laundry Shop</h2><button id="shopClose" class="close">✕</button></div>
+    <div id="shopList" class="shop-list"></div>
+  </aside>
+
+  <div id="celebrate" class="overlay hidden">
+    <div class="cele-card">
+      <div class="cele-burst"></div>
+      <div class="cele-kicker" id="celeKicker">Basket complete!</div>
+      <div class="cele-title" id="celeTitle">Fresh & Folded</div>
+      <div class="cele-rows" id="celeRows"></div>
+      <button class="big-btn" id="celeNext">Next basket ▶</button>
+      <div class="cele-skip">click anywhere to continue</div>
+    </div>
+  </div>
+
+  <div id="title" class="overlay title">
+    <div class="title-card">
+      <div class="logo"><span>Suds</span><em>&amp;</em><span>Sunshine</span></div>
+      <div class="tag">a cozy little laundry</div>
+      <button class="big-btn" id="btnPlay">Start washing</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
